@@ -5,7 +5,7 @@ description: >-
   Una descripción simplificada de cuáles son las mejores técnicas para
   garantizar integridad de documentos digitales
 pubDate: 2024-05-13T06:00:00.000Z
-draft: true
+draft: false
 tags:
   - nom151
   - sha256
@@ -47,12 +47,12 @@ Una licuadora me parece una analogía más consistente. Para ilustrarlo, imagina
 
 Por otro lado, en el mundo digital puedes duplicar información, lo que te permite realizar el ejercicio de la licuadora:
 
-* Alicia crea un archivo llamado contrato.txt
-* Bob duplica este archivo, creando un contrato(1).txt
-* Bob pasa el contenido de contrato(1).txt por la licuadora, generado una mancha única 
-* Bob guarda esta mancha única en caso de que Alicia altere el contrato original
-* Al día siguiente, Alicia envía contrato-nuevo.txt a Bob para que se firme
-* Bob crea otra copia contrato-nuevo(1).tx y licúa el contenido, generado otra mancha
+- Alicia crea un archivo llamado contrato.txt
+- Bob duplica este archivo, creando un contrato(1).txt
+- Bob pasa el contenido de contrato(1).txt por la licuadora, generado una mancha única
+- Bob guarda esta mancha única en caso de que Alicia altere el contrato original
+- Al día siguiente, Alicia envía contrato-nuevo.txt a Bob para que se firme
+- Bob crea otra copia contrato-nuevo(1).tx y licúa el contenido, generado otra mancha
 
 En este ejercicio mental de licuadoras, Bob sería capaz de detectar cualquier alteración del documento original, porque la licuadora no produciría la misma mancha (en adelante digestivo). La razón por la que el documento es íntegro es porque Alicia necesitaría recrear otro digestivo igual con ingredientes distintos.
 
@@ -80,7 +80,7 @@ Como requisito, las operaciones de comercio requieren de fecha cierta, que se ob
 
 > ... la información se haya mantenido íntegra e inalterada a partir del momento en que se generó por primera vez\
 > \
-> *Artículo 49 del Código de Comercio*
+> _Artículo 49 del Código de Comercio_
 
 La razón por la que se refiere a la primera vez en que se generó es porque si se crea una constancia de conservación en el momento de su creación, entonces se está creando un registro firmado por la autoridad certificadora que consta que el digestivo del documento existió en esa fecha.
 
@@ -92,4 +92,4 @@ La integridad es una propiedad de la información que consiste en mantener los d
 
 La principal forma de garantizar la integridad de un documento digital es a través de un digestivo, que funciona como identificador único del documento y que cambia significativamente ante la más mínima alteración del documento final.
 
-En México, la forma oficial de obtener un digestivo es a través de la NOM-151, que indica la emisión de un certificado del digestivo firmado con fecha por un proveedor de servicios de certificación. De esta forma se puede garantizar la conservación de un documento electrónico con fecha cierta para fines jurídicos. 
+En México, la forma oficial de obtener un digestivo es a través de la NOM-151, que indica la emisión de un certificado del digestivo firmado con fecha por un proveedor de servicios de certificación. De esta forma se puede garantizar la conservación de un documento electrónico con fecha cierta para fines jurídicos.
