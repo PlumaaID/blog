@@ -12,6 +12,84 @@ tags:
   - datos
   - integridad
   - fundamentos
-title: 'integridad de datos: ¿Ser o no ser? '
+title: 'Integridad de datos y licuadoras: una relación extraña'
 ---
 
+La integridad es de esos adjetivos que se relacionan con frecuencia a atributos subjetivos. Es decir; se cree que alguien es íntegro en relación a la moral y sus valores, mientras que no solemos pensar en la integridad de objetos inertes como la información, o piezas de datos.
+
+Los documentos electrónicos no obedecen a la moral ni a ningún valor, pero sí obedecen a reglas informáticas, por lo que una definición más extensa de integridad no debería distinguir entre la información y las personas. Tal vez un ejercicio más productivo sería preguntarnos lo contrario:
+
+## ¿Cómo se destruye la integridad (de datos)?
+
+Una escena de la cultura pop es esta donde Thanos, -el principal villano de Marvel en la saga Infinity War-, utiliza las gemas del infinito para desintegrar a la mitad de la población. El efecto utilizado por la escena para desaparecer a los personajes de la pantalla se convirtió en un fenómeno que cuyo alcance mediático perduró aún después de la película.
+
+Este efecto visual de desintegración es útil para respaldar la idea de que la integridad se trata de mantener una persona u objeto, -físico o no- de forma completa y sin alteraciones. Tal es el caso que hasta el código de comercio lo establece exactamente bajo estos términos:
+
+> se considerará que el contenido de un Mensaje de Datos es íntegro, si éste ha permanecido completo e inalterado independientemente de los cambios que hubiere podido sufrir el medio que lo contiene\
+> \
+> Artículo 93 bis. del Código de Comercio
+
+Al deshacerte de un archivo electrónico sin pasar por el basurero en tu computadora (borrarlo en serio), el archivo simplemente desaparece, como si lo convirtiéramos en polvo cibernético. Esta acción implica que no se puede recuperar el archivo porque se ha perdido su integridad de forma total.
+
+Un caso menos drástico implicaría la pérdida de integridad parcial, en donde el documento no de ha destruído pero ha sufrido alguna alteración menor. En este caso, la integridad del documento se pierde como resultado de la alteración directa.
+
+## ¿Cómo se garantiza la integridad?
+
+Considerando que la integridad se puede comprometer de forma total o parcial, es necesario un método para detectar hasta el más mínimo cambio. Naturalmente este es un reto de todos los días para los que trabajan con contratos en físico: hay que asegurarse de que el contenido está íntegro, y sorprendentemente existe una forma infalible de hacerlo, pero sólo si el documento es digital.
+
+### La licuadora
+
+Muchos autores en el tema utilizan la metáfora de la huella digital para referirse a los identificadores únicos de documentos (resultado de funciones hash), el problema es que la huella digital es un modelo que no le hace justicia al funcionamiento de un hash, o función resumen.
+
+![](/src/assets/images/ernestognw_two_blenders_with_blue_content._The_content_in_each__72410004-230c-42ec-8437-4e05f6856de4.png)
+
+Una licuadora me parece una analogía más consistente. Para ilustrarlo, imagina que colocas dos veces exactamente los mismos ingredientes en una licuadora durante el mismo periodo de tiempo; por supuesto que esto es imposible dado que no pudes utilizar los mismos ingredientes dos veces, en el mundo real su integridad es comprometida al ser víctimas de la licuadora.
+
+Por otro lado, en el mundo digital puedes duplicar información, lo que te permite realizar el ejercicio de la licuadora:
+
+* Alicia crea un archivo llamado contrato.txt
+* Bob duplica este archivo, creando un contrato(1).txt
+* Bob pasa el contenido de contrato(1).txt por la licuadora, generado una mancha única 
+* Bob guarda esta mancha única en caso de que Alicia altere el contrato original
+* Al día siguiente, Alicia envía contrato-nuevo.txt a Bob para que se firme
+* Bob crea otra copia contrato-nuevo(1).tx y licúa el contenido, generado otra mancha
+
+En este ejercicio mental de licuadoras, Bob sería capaz de detectar cualquier alteración del documento original, porque la licuadora no produciría la misma mancha (en adelante digestivo). La razón por la que el documento es íntegro es porque Alicia necesitaría recrear otro digestivo igual con ingredientes distintos.
+
+En todo caso, la seguridad de esta verificación de identidad depende de la "marca de la licuadora" y de sus características técnicas.
+
+### ¿Cuál es una buena licuadora?
+
+Una buena licuadora es aquella que ante el más mínimo cambio genere un digestivo completamente distinta. Esto es para evitar que se pueda manipular para generar un resultado similar al original.
+
+Adicionalmente, nadie debería de ser capaz de tomar un digestivo y recuperar los ingredientes iniciales. Si esto fuera posible entonces sería fácil reconstruir contenido que genere el mismo digestivo.
+
+Todas estas son propiedades de una función criptográfica de resumen (o hash). En México, la licuadora más popular es la [SHA-256 de la familia SHA-2 ](https://es.wikipedia.org/wiki/SHA-2)(por Secure Hashing Algorithm), y ha sido popularizada por la NOM-151, que es un certificado de conservación que incluye el digestivo de la licuadora SHA256.
+
+La mala noticia es que bajo la lógica de que no es posible obtener los ingredientes iniciales que producen el digestivo, entonces no es posible recuperar un documento aún si se tiene una constancia NOM-151. Inclusive la ley lo contempla para mensajes de datos:
+
+> En materia de conservación de mensajes de datos, será responsabilidad estricta del comerciante mantenerlos bajo su control, acceso y resguardo directo, a fin de que su ulterior consulta pueda llevarse a cabo en cualquier momento.\
+> \
+> Artículo 95 bis 2. del Código de Comercio
+
+En la práctica, la mayoría de proveedores de servicios de certificación y plataformas de digitalización guardan una copia en nombre del usuario. La recomendación generalizada sería que ellos también lo hicieran para evitar cualquier potencial inconveniente.
+
+## ¿Qué es la conservación de datos?
+
+Como requisito, las operaciones de comercio requieren de fecha cierta, que se obtiene a través de una constancia de conservación de datos, además de otros procedimientos. No obstante, la conservación se refiere a la garantía de que un documento existió en determinado momento, tal como lo menciona el artículo 49:
+
+> ... la información se haya mantenido íntegra e inalterada a partir del momento en que se generó por primera vez\
+> \
+> *Artículo 49 del Código de Comercio*
+
+La razón por la que se refiere a la primera vez en que se generó es porque si se crea una constancia de conservación en el momento de su creación, entonces se está creando un registro firmado por la autoridad certificadora que consta que el digestivo del documento existió en esa fecha.
+
+Contraintuitivamente, la conservación no conserva el documento, sólo garantizaría que se conservó en caso de hacerlo.
+
+## En conclusión
+
+La integridad es una propiedad de la información que consiste en mantener los datos completos y sin alteraciones. Esto es un procedimiento sencillo de realizar en medios electrónicos debido a las propiedades que tiene la información en medios digitales.
+
+La principal forma de garantizar la integridad de un documento digital es a través de un digestivo, que funciona como identificador único del documento y que cambia significativamente ante la más mínima alteración del documento final.
+
+En México, la forma oficial de obtener un digestivo es a través de la NOM-151, que indica la emisión de un certificado del digestivo firmado con fecha por un proveedor de servicios de certificación. De esta forma se puede garantizar la conservación de un documento electrónico con fecha cierta para fines jurídicos. 
