@@ -24,7 +24,11 @@
 						"name": "category",
 						"label": "Category",
 						"description": "Select an category for this post",
-						"options": ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5"],
+						"options": [
+							"Fundamentos de Firma Electrónica",
+							"Tecnología Financiera",
+							"Ciberseguridad"
+						],
 						"namespace": ["post", "category"],
 						"searchable": true
 					},

@@ -73,7 +73,7 @@ The documentation for Tina CMS can be found [here](https://tina.io/docs/)
 - ✅ Dark mode
 - ✅ Reading Time
 - ✅ [Pagefind](https://pagefind.app/) static search library integration
-- ✅ Related posts
+- ✅ Posts relacionados
 - ✅ Share posts (Linkedin, twitter)
 - ✅ Draft mode
 - ✅ Copy code block
