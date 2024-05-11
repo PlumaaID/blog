@@ -48,7 +48,7 @@ Un caso menos drástico implicaría la pérdida de integridad parcial, en donde 
 
 ## ¿Cómo se garantiza la integridad de un mensaje de datos?
 
-Considerando que la integridad se puede comprometer de forma total o parcial, es necesario un método para detectar hasta el más mínimo cambio. Naturalmente este es un reto de todos los días para los que trabajan con contratos en físico: hay que asegurarse de que el contenido está íntegro línea por línea. 
+Considerando que la integridad se puede comprometer de forma total o parcial, es necesario un método para detectar hasta el más mínimo cambio. Naturalmente este es un reto de todos los días para los que trabajan con contratos en físico: hay que asegurarse de que el contenido está íntegro línea por línea.
 
 Sorprendentemente, existe una forma infalible de hacerlo, pero *sólo si el documento es digital*.
 
@@ -60,7 +60,7 @@ Muchos autores en el tema utilizan la metáfora de la *[huella digital](https://
 
 Una **licuadora** me parece una analogía más consistente. Para ilustrarlo, imagina que colocas dos veces **los mismos** ingredientes en una licuadora durante el mismo periodo de tiempo; si los ingredientes son realmente los mismos, entonces el jugo de la licuadora tiene que ser **idéntico**. A este jugo le llamaremos **digestivo.**
 
-Cuando los documentos son físicos, por desgracia no podemos ponerlos en una licuadora porque su **integridad se vería comprometida. **No obstante, en el mundo digital puedes *duplicar información*, lo que permitiría a dos individuos realizar el siguiente ejercicio:
+Cuando los documentos son físicos, por desgracia no podemos ponerlos en una licuadora porque su \*\*integridad se vería comprometida. \*\*No obstante, en el mundo digital puedes *duplicar información*, lo que permitiría a dos individuos realizar el siguiente ejercicio:
 
 * Alicia crea un archivo llamado **contrato.txt**
 * Bob duplica este archivo, creando un **contrato(1).txt**
@@ -70,7 +70,7 @@ Cuando los documentos son físicos, por desgracia no podemos ponerlos en una lic
 * Bob crea otra copia **contrato-nuevo(1).tx** y licúa el contenido.
 * Bob realiza una comparación entre el digestivo de **contrato-nuevo(1).tx** y el digestivo de **contrato(1).txt** para asegurarse de que ambos contratos son los mismos.
 
-En este ejercicio mental de licuadoras, Bob sería capaz de detectar cualquier alteración del documento original, porque la licuadora no produciría el mismo jugo (en adelante digestivo). La razón por la que el documento se considera íntegro es porque **Alicia necesitaría recrear otro digestivo igual con ingredientes distintos, **lo cuál es extremadamente difícil si nuestra licuadora es **buena.**
+En este ejercicio mental de licuadoras, Bob sería capaz de detectar cualquier alteración del documento original, porque la licuadora no produciría el mismo jugo (en adelante digestivo). La razón por la que el documento se considera íntegro es porque **Alicia necesitaría recrear otro digestivo igual con ingredientes distintos**, lo cuál es extremadamente difícil si nuestra licuadora es **buena.**
 
 En todo caso, la seguridad de esta verificación de identidad depende de la "marca de la licuadora" y de sus características técnicas.
 
@@ -80,7 +80,7 @@ Una buena licuadora es aquella que ante el más mínimo cambio genere un digesti
 
 Adicionalmente, nadie debería de ser capaz de tomar un digestivo y recuperar los ingredientes iniciales. Si esto fuera posible entonces sería fácil reconstruir contenido que genere el mismo digestivo.
 
-Todas estas son propiedades de una función criptográfica de resumen (o hash). En México, la licuadora más popular es la [SHA-256 de la familia SHA-2 ](https://es.wikipedia.org/wiki/SHA-2)(por Secure Hashing Algorithm), y ha sido popularizada por la NOM-151, que es un certificado de conservación que incluye el digestivo de la licuadora SHA256.
+Todas estas son propiedades de una función criptográfica de resumen (o hash). En México, la licuadora más popular es la [SHA-256 de la familia SHA-2 ](https://es.wikipedia.org/wiki/SHA-2)(por [Secure Hashing Algorithm](https://es.wikipedia.org/wiki/Secure_Hash_Algorithm)), y ha sido popularizada por la **NOM-151**, que es un certificado de conservación que incluye el digestivo de la licuadora SHA256.
 
 La mala noticia es que bajo la lógica de que no es posible obtener los ingredientes iniciales que producen el digestivo, entonces no es posible recuperar un documento aún si se tiene una constancia NOM-151. Inclusive la ley lo contempla para mensajes de datos:
 
@@ -92,7 +92,7 @@ En la práctica, la mayoría de proveedores de servicios de certificación y pla
 
 ## ¿Qué es la conservación de datos?
 
-Como requisito, las operaciones de comercio requieren de fecha cierta, que se obtiene a través de una constancia de conservación de datos, además de otros procedimientos. No obstante, la conservación se refiere a la garantía de que un documento existió en determinado momento, tal como lo menciona el artículo 49:
+Como requisito, las operaciones de comercio requieren de **fecha cierta**, que se obtiene a través de una constancia de conservación de datos, además de otros procedimientos. No obstante, la conservación se refiere a la garantía de que un documento existió en determinado momento, tal como lo menciona el artículo 49:
 
 > ... la información se haya mantenido íntegra e inalterada a partir del momento en que se generó por primera vez\
 > \
@@ -104,13 +104,13 @@ Contraintuitivamente, la conservación no conserva el documento, sólo garantiza
 
 En el contexto de firma electrónica, existen 3 elementos que la componen y que se relacionan entre sí para garantizar la integridad de la firma:
 
-* Los datos de creación de firma: Estos incluyen el certificado emitido por un proveedor de servicios de certificación y una llave privada creada en control del usuario.
-* El mensaje de datos a firmar: Este es el documento en cuestión, dígase un contrato de cualquier tipo en un PDF o texto plano.
-* El mensaje de datos producido por los datos de creación de firma: Esta es la que se debería considerar como la firma, y es una pieza numérica cuya relación con el certificado y el mensaje de datos a firmar se puede demostrar matemáticamente, de ahí el no repudio.
+* **Los datos de creación de firma**: Estos incluyen el certificado emitido por un proveedor de servicios de certificación y una llave privada creada en control del usuario.
+* **El mensaje de datos a firmar**: Este es el documento en cuestión, dígase un contrato de cualquier tipo en un PDF o texto plano.
+* **El mensaje de datos producido por los datos de creación de firma**: Esta es la que se debería considerar como la firma, y es una pieza numérica cuya relación con el certificado y el mensaje de datos a firmar** se puede demostrar matemáticamente**, de ahí el no repudio.
 
-Dado que el mensaje de datos producido por los datos de creación de firma ya vinculan al certificado y el mensaje de datos a firmar, entonces por sí sólo constituye la prueba de que la firma es íntegra. De lo contrario, esta relación matemática que tiene con el certificado y el documento se rompe, y es fácilmente verificable.
+Dado que el mensaje de datos producido por los datos de creación de firma ya vinculan al certificado y el mensaje de datos a firmar, entonces **por sí sólo constituye la prueba de que la firma es íntegra**. De lo contrario, esta relación matemática que tiene con el certificado y el documento se rompe, y es fácilmente verificable.
 
-Adicional a eso, si el mensaje de datos a firmar se acompaña con un certificado NOM-151 y una consulta firmada por el SAT en respecto a la validez del certificado, entonces mantedrá toda la solidez jurídica para demostrar su validez.
+Adicional a eso, si el mensaje de datos a firmar se acompaña con un certificado **NOM-151** y una **consulta firmada con fecha por el PSC** en respecto a la validez del certificado, entonces mantedrá toda la solidez jurídica para demostrar su validez.
 
 ## En conclusión
 
