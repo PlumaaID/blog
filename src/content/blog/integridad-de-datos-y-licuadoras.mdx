@@ -12,16 +12,29 @@ tags:
   - datos
   - integridad
   - fundamentos
-title: 'Integridad de datos y licuadoras: una relación extraña'
+title: 'Integridad de datos, firmas y licuadoras: una relación extraña'
 ---
 
-La integridad es de esos adjetivos que se relacionan con frecuencia a atributos subjetivos. Es decir; se cree que alguien es íntegro en relación a la moral y sus valores, mientras que no solemos pensar en la integridad de objetos inertes como la información, o piezas de datos.
+La integridad es de esos adjetivos que rara vez los asociamos con objetos físicos y generalmente se relacionan a atributos subjetivos. Por ejemplo; se cree que alguien es *íntegro* en relación a la moral y sus valores, pero no nos cuestionamos la integridad de objetos inertes como la información, o piezas de datos.
 
-Los documentos electrónicos no obedecen a la moral ni a ningún valor, pero sí obedecen a reglas informáticas, por lo que una definición más extensa de integridad no debería distinguir entre la información y las personas. Tal vez un ejercicio más productivo sería preguntarnos lo contrario:
+Entrando en materia, la integridad se define en la Ley de Firma Electrónica Avanzada para sus efectos en la misma ley:
+
+> Consiste en que la firma electrónica avanzada en un documento electrónico o, en su
+> caso, en un mensaje de datos, permite dar certeza de que éste ha permanecido completo e
+> inalterado desde su firma, con independencia de los cambios que hubiere podido sufrir el medio
+> que lo contiene como resultado del proceso de comunicación, archivo o presentación\
+> \
+> Artículo 8 de la Ley de Firma Electrónica Avanzada
+
+Aunque la definición pareciera aplicar únicamente en el contexto de firma electrónica avanzada, lo cierto es que una definición más extensa de integridad no debería distinguir entre distintos tipos de información. El problema es que, como se hace referencia en nuestro [artículo donde explicamos el funcionamiento de la e.firma](https://blog.plumaa.id/post/como-funciona-la-firma-electronica-del-sat/); no sólo existen los datos de creación de firma, si no que existen dos mensajes de datos.
+
+Para desglosar cómo estos elementos se integran, tal vez un ejercicio más productivo sería preguntarnos lo contrario:
 
 ## ¿Cómo se destruye la integridad (de datos)?
 
-Una escena de la cultura pop es esta donde Thanos, -el principal villano de Marvel en la saga Infinity War-, utiliza las gemas del infinito para desintegrar a la mitad de la población. El efecto utilizado por la escena para desaparecer a los personajes de la pantalla se convirtió en un fenómeno que cuyo alcance mediático perduró aún después de la película.
+Una escena de la cultura pop es esta donde Thanos, -el principal villano de Marvel en la saga Infinity War-, utiliza las gemas del infinito para desintegrar a la mitad de la población. El efecto utilizado por la escena para desaparecer a los personajes de la pantalla se convirtió en una especie de símbolo cultural, aún mucho después de el estreno de la película.
+
+![](/src/assets/images/image-2023-02-24t161536.322.jpg)
 
 Este efecto visual de desintegración es útil para respaldar la idea de que la integridad se trata de mantener una persona u objeto, -físico o no- de forma completa y sin alteraciones. Tal es el caso que hasta el código de comercio lo establece exactamente bajo estos términos:
 
@@ -33,28 +46,31 @@ Al deshacerte de un archivo electrónico sin pasar por el basurero en tu computa
 
 Un caso menos drástico implicaría la pérdida de integridad parcial, en donde el documento no de ha destruído pero ha sufrido alguna alteración menor. En este caso, la integridad del documento se pierde como resultado de la alteración directa.
 
-## ¿Cómo se garantiza la integridad?
+## ¿Cómo se garantiza la integridad de un mensaje de datos?
 
-Considerando que la integridad se puede comprometer de forma total o parcial, es necesario un método para detectar hasta el más mínimo cambio. Naturalmente este es un reto de todos los días para los que trabajan con contratos en físico: hay que asegurarse de que el contenido está íntegro, y sorprendentemente existe una forma infalible de hacerlo, pero sólo si el documento es digital.
+Considerando que la integridad se puede comprometer de forma total o parcial, es necesario un método para detectar hasta el más mínimo cambio. Naturalmente este es un reto de todos los días para los que trabajan con contratos en físico: hay que asegurarse de que el contenido está íntegro línea por línea. 
+
+Sorprendentemente, existe una forma infalible de hacerlo, pero *sólo si el documento es digital*.
 
 ### La licuadora
 
-Muchos autores en el tema utilizan la metáfora de la huella digital para referirse a los identificadores únicos de documentos (resultado de funciones hash), el problema es que la huella digital es un modelo que no le hace justicia al funcionamiento de un hash, o función resumen.
+Muchos autores en el tema utilizan la metáfora de la *[huella digital](https://learn.microsoft.com/es-es/purview/sit-document-fingerprinting)* para referirse a los identificadores únicos de documentos (resultado de [funciones hash](https://en.wikipedia.org/wiki/Hash_function)), el problema es que la huella digital es una conceptualización que no le hace justicia al funcionamiento de un hash, o *función resumen*.
 
 ![](/src/assets/images/ernestognw_two_blenders_with_blue_content._The_content_in_each__72410004-230c-42ec-8437-4e05f6856de4.png)
 
-Una licuadora me parece una analogía más consistente. Para ilustrarlo, imagina que colocas dos veces exactamente los mismos ingredientes en una licuadora durante el mismo periodo de tiempo; por supuesto que esto es imposible dado que no pudes utilizar los mismos ingredientes dos veces, en el mundo real su integridad es comprometida al ser víctimas de la licuadora.
+Una **licuadora** me parece una analogía más consistente. Para ilustrarlo, imagina que colocas dos veces **los mismos** ingredientes en una licuadora durante el mismo periodo de tiempo; si los ingredientes son realmente los mismos, entonces el jugo de la licuadora tiene que ser **idéntico**. A este jugo le llamaremos **digestivo.**
 
-Por otro lado, en el mundo digital puedes duplicar información, lo que te permite realizar el ejercicio de la licuadora:
+Cuando los documentos son físicos, por desgracia no podemos ponerlos en una licuadora porque su **integridad se vería comprometida. **No obstante, en el mundo digital puedes *duplicar información*, lo que permitiría a dos individuos realizar el siguiente ejercicio:
 
-- Alicia crea un archivo llamado contrato.txt
-- Bob duplica este archivo, creando un contrato(1).txt
-- Bob pasa el contenido de contrato(1).txt por la licuadora, generado una mancha única
-- Bob guarda esta mancha única en caso de que Alicia altere el contrato original
-- Al día siguiente, Alicia envía contrato-nuevo.txt a Bob para que se firme
-- Bob crea otra copia contrato-nuevo(1).tx y licúa el contenido, generado otra mancha
+* Alicia crea un archivo llamado **contrato.txt**
+* Bob duplica este archivo, creando un **contrato(1).txt**
+* Bob pasa el contenido de contrato(1).txt por la licuadora, generado un **digestivo único.**
+* Bob **guarda el digestivo** en caso de que Alicia altere el contrato original.
+* Al día siguiente, Alicia envía **contrato-nuevo.txt** a Bob para que se firme.
+* Bob crea otra copia **contrato-nuevo(1).tx** y licúa el contenido.
+* Bob realiza una comparación entre el digestivo de **contrato-nuevo(1).tx** y el digestivo de **contrato(1).txt** para asegurarse de que ambos contratos son los mismos.
 
-En este ejercicio mental de licuadoras, Bob sería capaz de detectar cualquier alteración del documento original, porque la licuadora no produciría la misma mancha (en adelante digestivo). La razón por la que el documento es íntegro es porque Alicia necesitaría recrear otro digestivo igual con ingredientes distintos.
+En este ejercicio mental de licuadoras, Bob sería capaz de detectar cualquier alteración del documento original, porque la licuadora no produciría el mismo jugo (en adelante digestivo). La razón por la que el documento se considera íntegro es porque **Alicia necesitaría recrear otro digestivo igual con ingredientes distintos, **lo cuál es extremadamente difícil si nuestra licuadora es **buena.**
 
 En todo caso, la seguridad de esta verificación de identidad depende de la "marca de la licuadora" y de sus características técnicas.
 
@@ -72,7 +88,7 @@ La mala noticia es que bajo la lógica de que no es posible obtener los ingredie
 > \
 > Artículo 95 bis 2. del Código de Comercio
 
-En la práctica, la mayoría de proveedores de servicios de certificación y plataformas de digitalización guardan una copia en nombre del usuario. La recomendación generalizada sería que ellos también lo hicieran para evitar cualquier potencial inconveniente.
+En la práctica, la mayoría de proveedores de servicios de certificación y plataformas de digitalización guardan una copia en nombre del usuario. La recomendación generalizada sería que ellos también lo hicieran para evitar cualquier inconveniente.
 
 ## ¿Qué es la conservación de datos?
 
@@ -80,15 +96,25 @@ Como requisito, las operaciones de comercio requieren de fecha cierta, que se ob
 
 > ... la información se haya mantenido íntegra e inalterada a partir del momento en que se generó por primera vez\
 > \
-> _Artículo 49 del Código de Comercio_
+> *Artículo 49 del Código de Comercio*
 
 La razón por la que se refiere a la primera vez en que se generó es porque si se crea una constancia de conservación en el momento de su creación, entonces se está creando un registro firmado por la autoridad certificadora que consta que el digestivo del documento existió en esa fecha.
 
-Contraintuitivamente, la conservación no conserva el documento, sólo garantizaría que se conservó en caso de hacerlo.
+Contraintuitivamente, la conservación no conserva el documento, sólo garantizaría que se conservó desde un momento específico en el pasado.
+
+En el contexto de firma electrónica, existen 3 elementos que la componen y que se relacionan entre sí para garantizar la integridad de la firma:
+
+* Los datos de creación de firma: Estos incluyen el certificado emitido por un proveedor de servicios de certificación y una llave privada creada en control del usuario.
+* El mensaje de datos a firmar: Este es el documento en cuestión, dígase un contrato de cualquier tipo en un PDF o texto plano.
+* El mensaje de datos producido por los datos de creación de firma: Esta es la que se debería considerar como la firma, y es una pieza numérica cuya relación con el certificado y el mensaje de datos a firmar se puede demostrar matemáticamente, de ahí el no repudio.
+
+Dado que el mensaje de datos producido por los datos de creación de firma ya vinculan al certificado y el mensaje de datos a firmar, entonces por sí sólo constituye la prueba de que la firma es íntegra. De lo contrario, esta relación matemática que tiene con el certificado y el documento se rompe, y es fácilmente verificable.
+
+Adicional a eso, si el mensaje de datos a firmar se acompaña con un certificado NOM-151 y una consulta firmada por el SAT en respecto a la validez del certificado, entonces mantedrá toda la solidez jurídica para demostrar su validez.
 
 ## En conclusión
 
-La integridad es una propiedad de la información que consiste en mantener los datos completos y sin alteraciones. Esto es un procedimiento sencillo de realizar en medios electrónicos debido a las propiedades que tiene la información en medios digitales.
+La integridad es una propiedad de la información que consiste en mantener los datos completos y sin alteraciones, la cuál es aplicable a mensajes de datos y a conjuntos de mensajes de datos como es el caso de la Firma Electrónica Avanzada. La verificación de integridad es un procedimiento sencillo en medios electrónicos debido a las propiedades que tiene la información en medios digitales.
 
 La principal forma de garantizar la integridad de un documento digital es a través de un digestivo, que funciona como identificador único del documento y que cambia significativamente ante la más mínima alteración del documento final.
 
