@@ -1,5 +1,5 @@
 ---
-heroImage: /src/assets/images/integrity.png
+heroImage: src/assets/images/integrity.png
 category: Fundamentos de Firma Electrónica
 description: >-
   Una descripción simplificada de cuáles son las mejores técnicas para
@@ -15,7 +15,7 @@ tags:
 title: 'Integridad de datos, firmas y licuadoras: una relación extraña'
 ---
 
-La integridad es de esos adjetivos que rara vez los asociamos con objetos físicos y generalmente se relacionan a atributos subjetivos. Por ejemplo; se cree que alguien es *íntegro* en relación a la moral y sus valores, pero no nos cuestionamos la integridad de objetos inertes como la información, o piezas de datos.
+La integridad es de esos adjetivos que rara vez los asociamos con objetos físicos y generalmente se relacionan a atributos subjetivos. Por ejemplo; se cree que alguien es _íntegro_ en relación a la moral y sus valores, pero no nos cuestionamos la integridad de objetos inertes como la información, o piezas de datos.
 
 Entrando en materia, la integridad se define en la Ley de Firma Electrónica Avanzada para sus efectos en la misma ley:
 
@@ -34,7 +34,7 @@ Para desglosar cómo estos elementos se integran, tal vez un ejercicio más prod
 
 Una escena de la cultura pop es esta donde Thanos, -el principal villano de Marvel en la saga Infinity War-, utiliza las gemas del infinito para desintegrar a la mitad de la población. El efecto utilizado por la escena para desaparecer a los personajes de la pantalla se convirtió en una especie de símbolo cultural, aún mucho después de el estreno de la película.
 
-![](/src/assets/images/image-2023-02-24t161536.322.jpg)
+![](src/assets/images/image-2023-02-24t161536.322.jpg)
 
 Este efecto visual de desintegración es útil para respaldar la idea de que la integridad se trata de mantener una persona u objeto, -físico o no- de forma completa y sin alteraciones. Tal es el caso que hasta el código de comercio lo establece exactamente bajo estos términos:
 
@@ -50,25 +50,25 @@ Un caso menos drástico implicaría la pérdida de integridad parcial, en donde 
 
 Considerando que la integridad se puede comprometer de forma total o parcial, es necesario un método para detectar hasta el más mínimo cambio. Naturalmente este es un reto de todos los días para los que trabajan con contratos en físico: hay que asegurarse de que el contenido está íntegro línea por línea.
 
-Sorprendentemente, existe una forma infalible de hacerlo, pero *sólo si el documento es digital*.
+Sorprendentemente, existe una forma infalible de hacerlo, pero _sólo si el documento es digital_.
 
 ### La licuadora
 
-Muchos autores en el tema utilizan la metáfora de la *[huella digital](https://learn.microsoft.com/es-es/purview/sit-document-fingerprinting)* para referirse a los identificadores únicos de documentos (resultado de [funciones hash](https://en.wikipedia.org/wiki/Hash_function)), el problema es que la huella digital es una conceptualización que no le hace justicia al funcionamiento de un hash, o *función resumen*.
+Muchos autores en el tema utilizan la metáfora de la _[huella digital](https://learn.microsoft.com/es-es/purview/sit-document-fingerprinting)_ para referirse a los identificadores únicos de documentos (resultado de [funciones hash](https://en.wikipedia.org/wiki/Hash_function)), el problema es que la huella digital es una conceptualización que no le hace justicia al funcionamiento de un hash, o _función resumen_.
 
-![](/src/assets/images/ernestognw_two_blenders_with_blue_content._The_content_in_each__72410004-230c-42ec-8437-4e05f6856de4.png)
+![](src/assets/images/ernestognw_two_blenders_with_blue_content._The_content_in_each__72410004-230c-42ec-8437-4e05f6856de4.png)
 
 Una **licuadora** me parece una analogía más consistente. Para ilustrarlo, imagina que colocas dos veces **los mismos** ingredientes en una licuadora durante el mismo periodo de tiempo; si los ingredientes son realmente los mismos, entonces el jugo de la licuadora tiene que ser **idéntico**. A este jugo le llamaremos **digestivo.**
 
-Cuando los documentos son físicos, por desgracia no podemos ponerlos en una licuadora porque su \*\*integridad se vería comprometida. \*\*No obstante, en el mundo digital puedes *duplicar información*, lo que permitiría a dos individuos realizar el siguiente ejercicio:
+Cuando los documentos son físicos, por desgracia no podemos ponerlos en una licuadora porque su \*\*integridad se vería comprometida. \*\*No obstante, en el mundo digital puedes _duplicar información_, lo que permitiría a dos individuos realizar el siguiente ejercicio:
 
-* Alicia crea un archivo llamado **contrato.txt**
-* Bob duplica este archivo, creando un **contrato(1).txt**
-* Bob pasa el contenido de contrato(1).txt por la licuadora, generado un **digestivo único.**
-* Bob **guarda el digestivo** en caso de que Alicia altere el contrato original.
-* Al día siguiente, Alicia envía **contrato-nuevo.txt** a Bob para que se firme.
-* Bob crea otra copia **contrato-nuevo(1).tx** y licúa el contenido.
-* Bob realiza una comparación entre el digestivo de **contrato-nuevo(1).tx** y el digestivo de **contrato(1).txt** para asegurarse de que ambos contratos son los mismos.
+- Alicia crea un archivo llamado **contrato.txt**
+- Bob duplica este archivo, creando un **contrato(1).txt**
+- Bob pasa el contenido de contrato(1).txt por la licuadora, generado un **digestivo único.**
+- Bob **guarda el digestivo** en caso de que Alicia altere el contrato original.
+- Al día siguiente, Alicia envía **contrato-nuevo.txt** a Bob para que se firme.
+- Bob crea otra copia **contrato-nuevo(1).tx** y licúa el contenido.
+- Bob realiza una comparación entre el digestivo de **contrato-nuevo(1).tx** y el digestivo de **contrato(1).txt** para asegurarse de que ambos contratos son los mismos.
 
 En este ejercicio mental de licuadoras, Bob sería capaz de detectar cualquier alteración del documento original, porque la licuadora no produciría el mismo jugo (en adelante digestivo). La razón por la que el documento se considera íntegro es porque **Alicia necesitaría recrear otro digestivo igual con ingredientes distintos**, lo cuál es extremadamente difícil si nuestra licuadora es **buena.**
 
@@ -96,7 +96,7 @@ Como requisito, las operaciones de comercio requieren de **fecha cierta**, que s
 
 > ... la información se haya mantenido íntegra e inalterada a partir del momento en que se generó por primera vez\
 > \
-> *Artículo 49 del Código de Comercio*
+> _Artículo 49 del Código de Comercio_
 
 La razón por la que se refiere a la primera vez en que se generó es porque si se crea una constancia de conservación en el momento de su creación, entonces se está creando un registro firmado por la autoridad certificadora que consta que el digestivo del documento existió en esa fecha.
 
@@ -104,9 +104,9 @@ Contraintuitivamente, la conservación no conserva el documento, sólo garantiza
 
 En el contexto de firma electrónica, existen 3 elementos que la componen y que se relacionan entre sí para garantizar la integridad de la firma:
 
-* **Los datos de creación de firma**: Estos incluyen el certificado emitido por un proveedor de servicios de certificación y una llave privada creada en control del usuario.
-* **El mensaje de datos a firmar**: Este es el documento en cuestión, dígase un contrato de cualquier tipo en un PDF o texto plano.
-* **El mensaje de datos producido por los datos de creación de firma**: Esta es la que se debería considerar como la firma, y es una pieza numérica cuya relación con el certificado y el mensaje de datos a firmar** se puede demostrar matemáticamente**, de ahí el no repudio.
+- **Los datos de creación de firma**: Estos incluyen el certificado emitido por un proveedor de servicios de certificación y una llave privada creada en control del usuario.
+- **El mensaje de datos a firmar**: Este es el documento en cuestión, dígase un contrato de cualquier tipo en un PDF o texto plano.
+- **El mensaje de datos producido por los datos de creación de firma**: Esta es la que se debería considerar como la firma, y es una pieza numérica cuya relación con el certificado y el mensaje de datos a firmar** se puede demostrar matemáticamente**, de ahí el no repudio.
 
 Dado que el mensaje de datos producido por los datos de creación de firma ya vinculan al certificado y el mensaje de datos a firmar, entonces **por sí sólo constituye la prueba de que la firma es íntegra**. De lo contrario, esta relación matemática que tiene con el certificado y el documento se rompe, y es fácilmente verificable.
 
