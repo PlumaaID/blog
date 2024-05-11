@@ -1,5 +1,5 @@
 ---
-heroImage: /src/assets/images/Frame 7.png
+heroImage: src/assets/images/Frame 7.png
 category: Fundamentos de Firma Electrónica
 description: >-
   Una explicación clara del funcionamiento de la firma electrónica emitida por
@@ -29,14 +29,14 @@ En realidad, los archivos de tu e.firma funcionan como la tinta de una pluma. En
 
 El trazo de tu e.firma es un mensaje de datos que está ligado al documento que firmaste y a ti a través del certificado
 
-![](/src/assets/images/Frame-8.png "El trazo de tu e.firma es un mensaje de datos que está ligado al documento que firmaste y a ti a través del certificado")
+![](src/assets/images/Frame-8.png 'El trazo de tu e.firma es un mensaje de datos que está ligado al documento que firmaste y a ti a través del certificado')
 
 ### ¿Cómo funciona esta la creación del trazo?
 
 El SAT le entra a cada usuario varios documentos en su e.firma, de los que destacan principalmente dos:
 
-* El certificado (.cer): Este es un documento electrónico que contiene los datos del firmante (RFC, CURP, entre otros), y además incluye el trazo de firma de la autoridad certificadora.
-* La llave privada (.key): Este es un número secreto protegido por contraseña con el que puedes generar trazos de firmas.
+- El certificado (.cer): Este es un documento electrónico que contiene los datos del firmante (RFC, CURP, entre otros), y además incluye el trazo de firma de la autoridad certificadora.
+- La llave privada (.key): Este es un número secreto protegido por contraseña con el que puedes generar trazos de firmas.
 
 El trazo es un producto de utilizar tu llave privada sobre un documento cuya integridad se garantiza por una función de resumen. Es por esta razón que el certificado es público y se puede compartir con cualquiera, ya que es el que vincula tus trazos con tu identidad.
 
@@ -54,8 +54,8 @@ El problema con esta concepción es que mezcla dos artefactos distintos: la firm
 
 El mexicano tarjetahabiente promedio hace uso de una especie firma electrónica cuando inserta su PIN al realizar pagos con su tarjeta, por lo que te será más familiar el siguiente modelo mental:
 
-* Datos de Creación de Firma: Tu NIP
-* Firma Electrónica: Todos aquellos datos que produce la terminal bancaria para determinar que fuiste tú.
+- Datos de Creación de Firma: Tu NIP
+- Firma Electrónica: Todos aquellos datos que produce la terminal bancaria para determinar que fuiste tú.
 
 El principal problema con este esquema de firma electrónica es que requiere que el usuario y el banco acuerden por contrato el intercambio de claves (NIP). Este esquema de firma es, sin embargo, poco robusto y requiere fuertes garantías tecnológicas en punto de venta para garantizar identidad del tarjetahabiente.
 
@@ -65,14 +65,14 @@ La Ley de Firma Electrónica Avanzada se publicó en 2012, e introdujo una ampli
 
 La principal razón por la que estos términos bien conocidos es porque utilizan el mismo procedimiento que usan los sitios web para mostrarte el candadito verde.
 
-![](</src/assets/images/images (1).png> "El famoso candadito verde aparece cuando una autoridad de confianza (e.g. Google) firma digitalmente un certificado que acredita al sitio para intercambiar información con el usuario.")
+![](<src/assets/images/images (1).png> 'El famoso candadito verde aparece cuando una autoridad de confianza (e.g. Google) firma digitalmente un certificado que acredita al sitio para intercambiar información con el usuario.')
 
 Es decir, la Ley de Firma Electrónica Avanzada introdujo los procedimientos más avanzados en técnicas de seguridad en el mundo para efectos de firma electrónica, permitiendo la identificación inequívoca del firmante.
 
 Además, la ley le dió facultad a autoridades certificadas por el Banco de México para anclarse a su [Infraestructura Extendida de Seguridad (IES)](https://www.banxico.org.mx/servicios/certificados-ies-firma-electr.html), donde están registrados:
 
-* Los certificados que identifican a Banxico
-* Los certificados que identifican a las autoridades certificadoras (como el SAT) y firmados por Banxico
+- Los certificados que identifican a Banxico
+- Los certificados que identifican a las autoridades certificadoras (como el SAT) y firmados por Banxico
 
 Estos últimos siendo aquellas entidades que pueden emitir un certificado de firma electrónica avanzada para personas físicas y morales, como el SAT.
 
@@ -80,8 +80,8 @@ Estos últimos siendo aquellas entidades que pueden emitir un certificado de fir
 
 Las características de la Firma Electrónica Avanzada confieren una serie de ventajas operativas para sus usuarios y aquellos negocios que permitan a sus usuarios firmar a través de este mecanismo:
 
-* Integridad: Es imposible falsificar una firma electrónica siempre y cuando sea avanzada.
-* No Repudio: Existe certeza total de que el firmante es quien dice ser siempre y cuando el firmante permanezca en control de sus datos de creación.
+- Integridad: Es imposible falsificar una firma electrónica siempre y cuando sea avanzada.
+- No Repudio: Existe certeza total de que el firmante es quien dice ser siempre y cuando el firmante permanezca en control de sus datos de creación.
 
 Estas características abren las puertas a la implementación de sistemas que pueden procesar datos firmados, lo que enriquece el marco operativo para empresas de base tecnológica.
 
