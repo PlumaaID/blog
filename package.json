@@ -22,7 +22,7 @@
 	"scripts": {
 		"dev": "npx tinacms dev -c \"astro dev\"",
 		"start": "npx tinacms build && astro dev",
-		"build": "npx tinacms build && astro build",
+		"build": "npx tinacms build && astro build && mkdir -p public/src/assets && cp -r src/assets public/src/assets",
 		"sync": "astro sync",
 		"preview": "astro preview",
 		"postbuild": "pagefind --site dist",
